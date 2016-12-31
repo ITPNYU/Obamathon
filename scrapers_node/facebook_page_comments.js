@@ -13,7 +13,7 @@ FB.api(page, 'get', gotPage);
 function gotPage(res) {
 
   if (!res || res.error) {
-    // console.log(!res ? 'error occurred' : res.error);
+    console.log(!res ? 'error occurred' : res.error);
     // Ooops, this is not the right time to write the file
     // It will work, but how to best track when all posts have completed
     // console.log('Finished scraping, writing file');
