@@ -15,15 +15,12 @@ function gotPage(res) {
 
   if (!res || res.error) {
     console.log(!res ? 'error occurred' : res.error);
-    // console.log('Finished scraping, writing file');
-    // var everything = all.join('\n');
-    var json = JSON.stringify(allposts, null, 2);
-    fs.writeFileSync(name + '.json', json);
     return;
   } else {
     var posts = res.data;
-    //var json = JSON.stringify(posts, null, 2);
-    //fs.writeFileSync('posts.json', json);
+    var json = JSON.stringify(res, null, 2);
+    fs.writeFileSync('res.json', json);
+    
     console.log('got ' + posts.length + ' post');
     console.log('1 Created_time: ' + posts[0].created_time);
     console.log('2 Created_time: ' + posts[posts.length-1].created_time);
@@ -32,7 +29,22 @@ function gotPage(res) {
       var id = posts[i].id;
       allposts.push(posts[i]);
     }
+
+    // url for next page
+    var previous = res.paging.previous.match(/since=\d+/)[0];
     var next = res.paging.next.match(/until=\d+/)[0];
-    FB.api(page + '/?' + next, 'get', gotPage);
+    // What's the page id
+    var prev = previous.substring(6, previous.length);
+    var nxt = next.substring(6, next.length);
+    console.log(prev,nxt);
+    if (prev == nxt) {
+      // we're done
+      var json = JSON.stringify(allposts, null, 2);
+      fs.writeFileSync(name + '.json', json);
+      console.log('finished: ' + name + '.json');
+    } else {
+      // Keep going
+      FB.api(page + '/?' + next, 'get', gotPage);
+    }
   }
 };
