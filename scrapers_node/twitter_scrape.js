@@ -3,6 +3,8 @@
 var Twit = require('twit');
 var fs = require('fs');
 
+var twitterName = 'POTUS';
+
 // Pulling all my twitter account info from another file
 var config = require('./config.js');
 // Making a Twit object for connection to the API
@@ -12,7 +14,7 @@ var howmany = 200;
 
 // Execute a Twitter API call
 T.get('statuses/user_timeline', {
-  screen_name: 'POTUS',
+  screen_name: twitterName,
   count: howmany
 }, gotData);
 var tweets = [];
@@ -33,7 +35,8 @@ function validate(txt) {
 // Callback
 function gotData(err, data) {
 
-  if (data.length === 1) {
+  // It's over if no tweets (or even just 1?)
+  if (data.length <= 1) {
     // var s = '';
     // for (var i = 0; i < tweets.length; i++) {
     //   s += tweets[i] + '\n';
@@ -41,7 +44,7 @@ function gotData(err, data) {
     // fs.writeFileSync('potus_all.txt',s,'utf-8');
 
     var json = JSON.stringify(tweets,null, 2);
-    fs.writeFileSync('potus.json', json, 'utf-8');
+    fs.writeFileSync(twitterName + '.json', json, 'utf-8');
     process.exit();
   }
   //console.log(data);
@@ -68,7 +71,7 @@ function gotData(err, data) {
   console.log(data[last].created_at)
   console.log('Total tweets: ' + tweets.length)
   T.get('statuses/user_timeline', {
-    screen_name: 'POTUS',
+    screen_name: twitterName,
     count: howmany,
     max_id: oldest
   }, gotData);
