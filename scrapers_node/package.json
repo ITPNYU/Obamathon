@@ -2,6 +2,7 @@
   "name": "",
   "version": "",
   "dependencies": {
-    "fb": "^1.1.1"
+    "fb": "^1.1.1",
+    "twit": "^2.2.5"
   }
 }
