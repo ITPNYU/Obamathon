@@ -1,37 +1,16 @@
+<!--This is an example forked from SETH AXTHELM's Building a Word Cloud Using D3.js for Data Analysis with CivicData-->
+<!--https://devblog.accela.com/2015/03/18/building-a-word-cloud-using-d3-js-for-data-analysis-with-civicdata/-->
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<style>
-  .bar {
-    fill: steelblue;
-  }
+<div id="cloud" style="width:100%;height:600px;position:relative;"></div>
 
-  .bar:hover {
-    fill: brown;
-  }
-
-  .axis--x path {
-    display: none;
-  }
-</style>
-
-<svg width="1200" height="500"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.0.5/wordcloud2.min.js"></script>
 
 <script>
-  var svg = d3.select("svg"),
-      margin = {top: 20, right: 20, bottom: 70, left: 40},
-      width = +svg.attr("width") - margin.left - margin.right,
-      height = +svg.attr("height") - margin.top - margin.bottom;
-
-  var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
-      y = d3.scaleLinear().rangeRound([height, 0]);
-
-  var g = svg.append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  // loading original data, with id, timestamp and text
+  // Loading original data, with id, timestamp and text
   d3.csv("data/potus_tweets.csv", function(d) {
     return {
       id: d.tweet_id,
@@ -50,7 +29,7 @@
     var textArray = textString.split(/[ '.#:,—\-@\"]+/);
     var textObjects = [];
 
-    // exclude common words that may not make sense to include
+    // Exclude common words that may not make sense to include
     textArray.forEach(function(d) {
       var upperD = d.toUpperCase();
       if (!$.isNumeric(d) && !matches(upperD,"HTTPS","HTTP","//T","–","→","…","IF","”","AROUND","ME","OFF","YOU.","HAS","EACH","BEFORE","AFTER","GOT","HE","BECAUSE","WE","OUR","I","WITH","MORE","ALL","GO","GET","SHOULD","LAST","CAN","WHEN","SHE","EVER","OUT","ONE","AN","STILL","IT.","S","HAVE","T","MY","DO","VE","NOW","RE","LL","LIKE","NO","UP","M","HERE","SEE","NOT","THEY","HOW","ABOUT","WHO","YOU","FROM","YOUR","WHAT","BUT","JUST","THAN","THEIR","THAT'S","&AMP;","BY","SO","AS","ARE","IT'S","WAS","IT","IS","THAT","-","AT","THIS","OF","AND","TO","","&","ON","THE","IN","BE","FOR","A")) {
@@ -72,48 +51,23 @@
       return b.value - a.value;
     });
 
-    wordCountMin = wordCountSorted.slice(0,50);
+    // Put key and value into array [key, value]
+    var tags = [];
+    wordCountSorted.forEach(function(d) {
+      tags.push([d.key,parseInt(d.value)]);
+    });
+    tags = tags.slice(0,50);
+    console.log(tags);
 
-    console.log(wordCountMin);
-    drawBarChart(wordCountMin);
+    // Drawing a cloud
+    WordCloud(document.getElementById('cloud'), {
+      gridSize: 12, 
+      weightFactor: 8, 
+      rotateRatio: 0.5,
+      list : tags.map(function(word) { return [word[0], Math.round(word[1]/5)]; }), 
+      wait: 10
+    });
   });
-
-  // Drawing a bar chart
-  function drawBarChart(data) {
-    data = wordCountMin;
-    x.domain(data.map(function(d) { return d.key; }));
-    y.domain([0, d3.max(data, function(d) { return d.value; })]);
-
-    g.append("g")
-        .attr("class", "axis axis--x")
-        .attr("transform", "translate(0," + height + ")")
-        .style("font-size", "9px")
-        .call(d3.axisBottom(x))
-        .selectAll("text")
-        .style("text-anchor", "end")
-        .attr("dx", "-.8em")
-        .attr("dy", ".15em")
-        .attr("transform", "rotate(-45)");
-
-    g.append("g")
-        .attr("class", "axis axis--y")
-        .call(d3.axisLeft(y))
-      .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", "0.71em")
-        .attr("text-anchor", "end")
-        .text("Frequency");
-
-    g.selectAll(".bar")
-      .data(data)
-      .enter().append("rect")
-        .attr("class", "bar")
-        .attr("x", function(d) { return x(d.key); })
-        .attr("y", function(d) { return y(d.value); })
-        .attr("width", x.bandwidth())
-        .attr("height", function(d) { return height - y(d.value); });
-  }
 
   // A function for finding matching words in a string
   function matches(eVal, argList) {
