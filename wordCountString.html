@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Obamathon-wordCounting</title>
+  </head>
+  <body>
+  <h2>Obamathon - Counting Words in a String Example</h2>
+
+  <br>
+  <p>The number of words in this variable called stringExample is:</p>
+  <p id="words"></p>
+
+  </body>
+  <script>
+  //this example counts the words in a string and displays ths result on your HTML page and in the console:
+  	var stringExample = "Counting the words in this string should return the number eleven.";
+
+	function wordCounter (){
+	
+		var result = stringExample.split(" ").length;
+		document.getElementById("words").innerHTML =  result;
+
+	}
+
+	wordCounter();
+
+  </script>
+</html>
