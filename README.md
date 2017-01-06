@@ -23,6 +23,11 @@ https://www.eventbrite.com/e/obamathon-tickets-30256812942
 * We've also added some additional community contributed [datasets here in this repo](https://github.com/ITPNYU/Obamathon/tree/master/data).
 * [National Popular Vote by State](https://docs.google.com/spreadsheets/d/1b5IdNeFesQADE_dhdG_NnXafeSBUUmDR-ZZw8vidyxk/edit#gid=0)
 
+## Data Resources
+* [American Presidency Project](http://www.presidency.ucsb.edu/)
+* [White House Transition Project](http://whitehousetransitionproject.org/)
+* [Sunlight Foundation](https://sunlightfoundation.com/)
+
 ## Technical Resources:
 * [Surveillance Society Github](https://github.com/giladlotan/surveillancesociety)
 * [Programming from A to Z](http://shiffman.net/a2z/)
@@ -35,3 +40,4 @@ https://www.eventbrite.com/e/obamathon-tickets-30256812942
 * [Why I'm Thankful for Obama]( http://www.forwardprogressives.com/10-reasons-im-thankful-barack-obama-president/)
 * [White House Social Media Archive](http://obamawhitehouse.gov.archivesocial.com/)
 * [@Relive44 Twitter Bot](https://twitter.com/relive44)
+* [Hindsight is 20/20 by Luke Dubois](http://hindsightisalways2020.net/)
