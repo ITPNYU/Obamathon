@@ -21,6 +21,7 @@ https://www.eventbrite.com/e/obamathon-tickets-30256812942
 * [Obama GIPHY collection](http://giphy.com/obama)
 * [White House Instagram (unofficial)](https://www.dropbox.com/s/0w4ajmh5w30g44v/whitehouse_instagram.zip?dl=0)
 * We've also added some additional community contributed [datasets here in this repo](https://github.com/ITPNYU/Obamathon/tree/master/data).
+* [National Popular Vote by State](https://docs.google.com/spreadsheets/d/1b5IdNeFesQADE_dhdG_NnXafeSBUUmDR-ZZw8vidyxk/edit#gid=0)
 
 ## Technical Resources:
 * [Surveillance Society Github](https://github.com/giladlotan/surveillancesociety)
