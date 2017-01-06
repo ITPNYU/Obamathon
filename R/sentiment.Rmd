@@ -1,0 +1,47 @@
+---
+title: "Sentiment analysis - Tweets"
+author: "Kristian Wichmann"
+date: "6 jan 2017"
+output: pdf_document
+---
+
+## Load tweets
+
+```{r, warning=FALSE, cache=TRUE}
+tweets <- read.csv("tweets.csv", quote ="", fileEncoding="UTF-8")
+```
+
+## Load AFINN-111 dataset
+
+```{r, warning=FALSE, cache=TRUE}
+afinn <- read.csv("AFINN-111.txt", sep = "\t", header = FALSE)
+colnames(afinn) <- c("word", "score")
+```
+
+## Sentiment of word
+
+```{r}
+sentiment <- function(word) {
+  lookup <- grep(paste0("^", word, "$"), afinn$word)
+  if (length(lookup) == 0) {
+    return(0)
+  }
+  afinn[lookup,]$score[1]
+}
+```
+
+## Sentiment analysis
+
+```{r}
+sent_analyze <- function(tweet) {
+  text <- gsub('[\".,!?:;]','', tweet)
+  text <- tolower(text)
+  words <- strsplit(text, ' ')[[1]]
+  sentiments <- sapply(words, sentiment)
+  sum(sentiments)
+} 
+```
+
+```{r}
+tweets$sentiment <- sapply(tweets$text, sent_analyze)
+```
