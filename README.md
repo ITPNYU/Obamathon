@@ -4,7 +4,7 @@ Example code and data for ITP's Obamathon Day
 
 https://www.eventbrite.com/e/obamathon-tickets-30256812942
 
-Inspirational Links
+Inspirational Links & Resources:
 
 5 Inspiring Lessons Taught by Michelle Obama: http://www.lifehack.org/322685/5-inspiring-lessons-taught-michelle-obama
 
