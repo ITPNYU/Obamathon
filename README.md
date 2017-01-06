@@ -19,7 +19,7 @@ https://www.eventbrite.com/e/obamathon-tickets-30256812942
 * [White House Vine Archive](https://www.dropbox.com/s/zetb2d5ohqmkjqo/VINE-WH-archive_1421922769494487040.zip?dl=0)
 * [@POTUS Twitter archive](https://www.whitehouse.gov/sites/default/files/POTUS111716.zip)
 * [@FLOTUS Twitter archive](https://www.whitehouse.gov/sites/default/files/FLOTUS111716.zip)
-* We've also added some additional community created [datasets here in this repo](https://github.com/ITPNYU/Obamathon/tree/master/data).
+* We've also added some additional community contributed [datasets here in this repo](https://github.com/ITPNYU/Obamathon/tree/master/data).
 
 
 ## Inspirational Links & Resources:
