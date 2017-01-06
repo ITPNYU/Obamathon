@@ -1,6 +1,6 @@
 # Obamathon
 
-On January 5th, 2017, the White House [announced the release](https://twitter.com/WhiteHouse/status/817100956349374466) of downtloads for their Twitter, Facebook, and Vine archives.  
+On January 5th, 2017, the White House [announced the release](https://twitter.com/WhiteHouse/status/817100956349374466) of downloads for their Twitter, Facebook, and Vine archives.  
 
 The Obamathon is a one day event at ITP to develop projects that make use of this data.
 
