@@ -1,7 +1,7 @@
 import json
 
 # load the JSON file
-with open('../data/facebook_barackobama.json') as data_file:    
+with open('../../data/facebook_barackobama.json') as data_file:    
     data = json.load(data_file)
 
 # print out the message

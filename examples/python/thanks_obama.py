@@ -10,7 +10,7 @@ with open("mykeys.txt") as f:
     app_secret = mykeys[1].rstrip()
 
 # load the JSON file
-with open('../data/facebook_barackobama.json') as data_file:    
+with open('../../data/facebook_barackobama.json') as data_file:    
     data = json.load(data_file)
 
 # print original message
