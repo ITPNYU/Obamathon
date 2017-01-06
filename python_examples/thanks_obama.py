@@ -14,7 +14,8 @@ with open('../data/facebook_barackobama.json') as data_file:
     data = json.load(data_file)
 
 # print original message
-print data[0]["message"]
+counter = 0
+print data[counter]["message"]
 # print a blank line
 print
 
@@ -27,19 +28,22 @@ while len(comments["data"]) > 0:
 			print comment["message"]
 
 	# get the next page of comments
-	request_url = comments["paging"]["next"]
-	# get the url before the parameters so we can replace the access token
-	request_url = request_url.split('?', 1)[0]
-	parameters = '?access_token={0}|{1}&limit=25&after={2}'.format(app_id, app_secret, comments["paging"]["cursors"]["after"])
+	if "next" in comments["paging"]:
+		request_url = comments["paging"]["next"]
+		# get the url before the parameters so we can replace the access token
+		request_url = request_url.split('?', 1)[0]
+		parameters = '?access_token={0}|{1}&limit=999&after={2}'.format(app_id, app_secret, comments["paging"]["cursors"]["after"])
 
-	# load json from url
-	try:
-		response = urllib2.urlopen(request_url + parameters)
-		data = json.load(response) 
-		# start over
-		comments = data
-	except urllib2.HTTPError, e:
-	    print "No more comments"
-	    break
+		# load json from url
+		try:
+			response = urllib2.urlopen(request_url + parameters)
+			new_data = json.load(response) 
+			# start over
+			comments = new_data
+		except urllib2.HTTPError, e:
+		    counter += 1
+		    comments = data[counter]["comments"]
+	else:
+		break
 
 	
