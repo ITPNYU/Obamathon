@@ -1,6 +1,6 @@
 # Obamathon
 
-On January 5th, 2017, the White House [announced the release](https://twitter.com/WhiteHouse/status/817100956349374466) of downtloads for their Twitter, Facebook, and Vine archives.  
+On January 5th, 2017, the White House [announced the release](https://twitter.com/WhiteHouse/status/817100956349374466) of downloads for their Twitter, Facebook, and Vine archives.  
 
 The Obamathon is a one day event at ITP to develop projects that make use of this data.
 
@@ -19,7 +19,8 @@ https://www.eventbrite.com/e/obamathon-tickets-30256812942
 * [White House Vine Archive](https://www.dropbox.com/s/zetb2d5ohqmkjqo/VINE-WH-archive_1421922769494487040.zip?dl=0)
 * [@POTUS Twitter archive](https://www.whitehouse.gov/sites/default/files/POTUS111716.zip)
 * [@FLOTUS Twitter archive](https://www.whitehouse.gov/sites/default/files/FLOTUS111716.zip)
-* We've also added some additional community created [datasets here in this repo](https://github.com/ITPNYU/Obamathon/tree/master/data).
+* [Obama GIPHY collection](http://giphy.com/obama)
+* We've also added some additional community contributed [datasets here in this repo](https://github.com/ITPNYU/Obamathon/tree/master/data).
 
 
 ## Inspirational Links & Resources:
@@ -28,5 +29,4 @@ https://www.eventbrite.com/e/obamathon-tickets-30256812942
 * [Inspirational Sayings from President Obama's Presidency](http://www.quotezine.com/barack-obama-quotes-the-15-most-inspirational-sayings-of-his-presidency/)
 * [Why I'm Thankful for Obama]( http://www.forwardprogressives.com/10-reasons-im-thankful-barack-obama-president/)
 * [White House Social Media Archive](http://obamawhitehouse.gov.archivesocial.com/)
-* [Giphy's Obama Page](http://giphy.com/obama)
 * [@Relive44 Twitter Bot](https://twitter.com/relive44)
