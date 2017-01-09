@@ -13,7 +13,7 @@ https://www.eventbrite.com/e/obamathon-tickets-30256812942
 * White House blog: [The Digital Transition: How the Presidential Transition Works in the Social Media Age](https://www.whitehouse.gov/blog/2016/10/31/digital-transition-how-presidential-transition-works-social-media-age)
 
 ## Project Links
-* Add your name and project name and link here!
+* [Add your name and project name and link here](https://github.com/ITPNYU/Obamathon/wiki)
 
 ## White House Data
 * [@WhiteHouse Twitter archive](https://www.whitehouse.gov/sites/default/files/WhiteHouse111716.zip)
